@@ -1,3 +1,5 @@
+"use client";
+
 import { usePeople } from "shared/hooks";
 
 export const PeopleList = () => {
