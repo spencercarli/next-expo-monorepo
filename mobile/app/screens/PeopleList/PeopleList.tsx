@@ -3,6 +3,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { AppStackParamList } from "navigation/AppStack";
 import { usePeople } from "shared/hooks";
+import { getIdFromUrl } from "shared/utils";
 
 type PeopleListProps = NativeStackScreenProps<AppStackParamList, "PeopleList">;
 
@@ -16,9 +17,12 @@ export const PeopleList = ({ navigation }: PeopleListProps) => {
         {isError && <Text>Error...</Text>}
         {data?.results.map((person) => (
           <TouchableOpacity
-            onPress={() => navigation.navigate("Person", { id: "1" })}
+            key={person.url}
+            onPress={() =>
+              navigation.navigate("Person", { id: getIdFromUrl(person.url) })
+            }
           >
-            <Text key={person.url} style={{ padding: 10, marginVertical: 5 }}>
+            <Text style={{ padding: 10, marginVertical: 5 }}>
               {person.name}
             </Text>
           </TouchableOpacity>
