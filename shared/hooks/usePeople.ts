@@ -1,5 +1,7 @@
 import { useQuery } from "react-query";
 
+import { swapi } from "../api/swapi";
+
 type Person = {
   url: string;
   name: string;
@@ -26,8 +28,7 @@ export const usePeople = () => {
     queryKey: "people",
     queryFn: async (): Promise<Response> => {
       try {
-        const res = await fetch("https://swapi.dev/api/people");
-        const data = await res.json();
+        const { data } = await swapi.get("/people");
         return data;
       } catch (error) {
         throw error;
