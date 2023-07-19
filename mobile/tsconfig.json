@@ -2,8 +2,11 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
+    "baseUrl": ".",
     "paths": {
-      "shared/*": ["../shared/*"]
+      "shared/*": ["../shared/*"],
+      "screens/*": ["app/screens/*"],
+      "navigation/*": ["app/navigation/*"]
     }
   }
 }

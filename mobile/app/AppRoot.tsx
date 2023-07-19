@@ -1,5 +1,5 @@
-import { PeopleList } from "./screens/PeopleList";
+import { AppStack } from "navigation/AppStack";
 
 export const AppRoot = () => {
-  return <PeopleList />;
+  return <AppStack />;
 };
