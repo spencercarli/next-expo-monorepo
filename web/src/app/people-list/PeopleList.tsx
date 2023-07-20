@@ -1,6 +1,9 @@
 "use client";
 
+import Link from "next/link";
+
 import { usePeople } from "shared/hooks";
+import { getIdFromUrl } from "shared/utils";
 
 export const PeopleList = () => {
   const { data, isLoading, isError } = usePeople();
@@ -16,7 +19,9 @@ export const PeopleList = () => {
   return (
     <ul>
       {data?.results.map((person) => (
-        <li key={person.url}>{person.name}</li>
+        <Link key={person.url} href={`/person/${getIdFromUrl(person.url)}`}>
+          <li style={{ padding: 10 }}>{person.name}</li>
+        </Link>
       ))}
     </ul>
   );
