@@ -1,11 +1,11 @@
-import { SafeAreaView, Text, ScrollView } from "react-native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { SafeAreaView, Text, ScrollView } from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-import { usePerson } from "shared/hooks";
+import { usePerson } from 'shared/people/usePerson';
 
-import { AppStackParamList } from "navigation/AppStack";
+import { AppStackParamList } from 'navigation/AppStack';
 
-type PersonProps = NativeStackScreenProps<AppStackParamList, "Person">;
+type PersonProps = NativeStackScreenProps<AppStackParamList, 'Person'>;
 
 export const Person = ({ route }: PersonProps) => {
   const { isLoading, isError, data } = usePerson(route.params.id);

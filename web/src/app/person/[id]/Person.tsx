@@ -1,4 +1,4 @@
-import { getPerson } from 'shared/hooks/getPerson';
+import { getPerson } from 'shared/people/getPerson';
 
 type PersonProps = {
   params: { id: string };

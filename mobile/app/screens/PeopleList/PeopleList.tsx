@@ -1,11 +1,11 @@
-import { SafeAreaView, ScrollView, Text, TouchableOpacity } from "react-native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { SafeAreaView, ScrollView, Text, TouchableOpacity } from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-import { AppStackParamList } from "navigation/AppStack";
-import { usePeople } from "shared/hooks";
-import { getIdFromUrl } from "shared/utils";
+import { AppStackParamList } from 'navigation/AppStack';
+import { usePeople } from 'shared/people/usePeople';
+import { getIdFromUrl } from 'shared/utils';
 
-type PeopleListProps = NativeStackScreenProps<AppStackParamList, "PeopleList">;
+type PeopleListProps = NativeStackScreenProps<AppStackParamList, 'PeopleList'>;
 
 export const PeopleList = ({ navigation }: PeopleListProps) => {
   const { data, isLoading, isError } = usePeople();
@@ -19,7 +19,7 @@ export const PeopleList = ({ navigation }: PeopleListProps) => {
           <TouchableOpacity
             key={person.url}
             onPress={() =>
-              navigation.navigate("Person", { id: getIdFromUrl(person.url) })
+              navigation.navigate('Person', { id: getIdFromUrl(person.url) })
             }
           >
             <Text style={{ padding: 10, marginVertical: 5 }}>

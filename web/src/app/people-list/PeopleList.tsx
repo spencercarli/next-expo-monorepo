@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { getPeople } from 'shared/hooks/getPeople';
+import { getPeople } from 'shared/people/getPeople';
 import { getIdFromUrl } from 'shared/utils';
 
 export const PeopleList = async () => {
