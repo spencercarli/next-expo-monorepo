@@ -11,12 +11,14 @@ type Response = {
   results: Person[];
 };
 
+export const getPeople = async (): Promise<Response> => {
+  const { data } = await swapi.get('/people');
+  return data;
+};
+
 export const usePeople = () => {
   return useQuery({
     queryKey: 'people',
-    queryFn: async (): Promise<Response> => {
-      const { data } = await swapi.get('/people');
-      return data;
-    },
+    queryFn: getPeople,
   });
 };
