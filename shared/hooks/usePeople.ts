@@ -1,8 +1,8 @@
-import { useQuery } from "react-query";
+import { useQuery } from 'react-query';
 
-import { swapi } from "../api/swapi";
+import { swapi } from '../api/swapi';
 
-import type { Person } from "./types";
+import type { Person } from './types';
 
 type Response = {
   count: number;
@@ -13,14 +13,10 @@ type Response = {
 
 export const usePeople = () => {
   return useQuery({
-    queryKey: "people",
+    queryKey: 'people',
     queryFn: async (): Promise<Response> => {
-      try {
-        const { data } = await swapi.get("/people");
-        return data;
-      } catch (error) {
-        throw error;
-      }
+      const { data } = await swapi.get('/people');
+      return data;
     },
   });
 };

@@ -4,5 +4,28 @@
     "shared",
     "mobile",
     "web"
-  ]
+  ],
+  "scripts": {
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format:check": "prettier --config ./.prettierrc --debug-check \"**/**/*.{js,jsx,ts,tsx}\"",
+    "format:write": "prettier --config ./.prettierrc --write \"**/**/*.{js,jsx,ts,tsx}\""
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "babel-eslint": "10.0.1",
+    "eslint": "^8.29.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-prettier": "8.6.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react-native": "4.0.0",
+    "eslint-plugin-react-native-globals": "0.1.2",
+    "eslint-plugin-testing-library": "^5.11.0",
+    "prettier": "2.8.1"
+  }
 }

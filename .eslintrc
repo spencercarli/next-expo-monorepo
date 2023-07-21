@@ -1,0 +1,95 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "jest": true,
+    "react-native-globals/all": true
+  },
+  "extends": ["airbnb", "prettier"],
+  "plugins": [
+    "react",
+    "react-native",
+    "prettier",
+    "react-native-globals",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "arrow-body-style": [0],
+    "camelcase": [0],
+    "class-methods-use-this": [0],
+    "dot-notation": [0],
+    "import/first": [0],
+    "import/no-named-as-default": [0],
+    "import/no-unresolved": [0],
+    "import/order": [0],
+    "import/prefer-default-export": [0],
+    "no-bitwise": [1],
+    "no-else-return": [0],
+    "no-nested-ternary": [0],
+    "no-plusplus": [0],
+    "no-underscore-dangle": [0],
+    "prefer-destructuring": [0],
+    "prefer-promise-reject-errors": [0],
+    "radix": [0],
+    "react/destructuring-assignment": [0],
+    "react/forbid-prop-types": [0],
+    "react/jsx-filename-extension": [0],
+    "react/jsx-curly-brace-presence": [0],
+    "react/jsx-wrap-multilines": [0],
+    "react/prefer-stateless-function": [0],
+    "react/prop-types": ["error", { "ignore": ["navigation"] }],
+    "react/require-default-props": [0],
+    "react/sort-comp": [0],
+    "react-native/no-unused-styles": [2],
+    // ts can cause false positives with the no-use-before-define rule
+    // https://typescript-eslint.io/rules/no-use-before-define/#how-to-use
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "import/extensions": "off",
+    "react/function-component-definition": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "react/style-prop-object": "off",
+    // The no-restricted-imports rule is overridden in app/navigation/.eslintrc. If editing this
+    // one you may want to update that one as well.
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": ["screens/*", "**/screens/*"],
+            "message": "Contents of the screens/ directory should be unique to that screen. Need it somewhere else? Move it to a shared directory like components/, utils/, etc."
+          },
+          {
+            "group": ["../../**"],
+            "message": "This seems like a good time to use an absolute import!"
+          }
+        ]
+      }
+    ],
+    "react/react-in-jsx-scope": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        // this rule is redundant in ts files and can lead to false positives
+        // src: https://typescript-eslint.io/linting/troubleshooting#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
+        "no-undef": "off",
+        // this rule will throw in eslint error when typing vars. Use @typescript-eslint/no-unused-vars instead
+        "no-unused-vars": "off"
+      }
+    },
+    {
+      "files": ["*.test.*", "*.spec.*"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
+    },
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": ["plugin:testing-library/react"]
+    }
+  ]
+}
