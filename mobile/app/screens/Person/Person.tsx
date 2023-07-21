@@ -4,17 +4,20 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { usePerson } from 'shared/people/usePerson';
 
 import { AppStackParamList } from 'navigation/AppStack';
+import { Loading, ErrorBoundary } from 'components/ui';
 
 type PersonProps = NativeStackScreenProps<AppStackParamList, 'Person'>;
 
 export const Person = ({ route }: PersonProps) => {
-  const { isLoading, isError, data } = usePerson(route.params.id);
+  const { isLoading, isError, data, error, refetch } = usePerson(
+    route.params.id,
+  );
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView>
-        {isLoading && <Text>Loading...</Text>}
-        {isError && <Text>Error...</Text>}
+        {isLoading && <Loading />}
+        {isError && <ErrorBoundary error={error} reset={refetch} />}
 
         <Text>{JSON.stringify(data, null, 2)}</Text>
       </ScrollView>

@@ -7,8 +7,10 @@ module.exports = function babelConfig(api) {
         'module-resolver',
         {
           alias: {
+            // duplicate in tsconfig.json
             screens: './app/screens',
             navigation: './app/navigation',
+            components: './app/components',
           },
         },
       ],

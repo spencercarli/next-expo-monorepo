@@ -5,8 +5,10 @@
     "baseUrl": ".",
     "paths": {
       "shared/*": ["../shared/*"],
+      // duplicate in babel.config.js
       "screens/*": ["app/screens/*"],
-      "navigation/*": ["app/navigation/*"]
+      "navigation/*": ["app/navigation/*"],
+      "components/*": ["app/components/*"]
     }
   }
 }
