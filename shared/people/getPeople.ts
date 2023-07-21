@@ -11,5 +11,6 @@ type Response = {
 
 export const getPeople = async (): Promise<Response> => {
   const { data } = await swapi.get('/people');
+
   return data;
 };
