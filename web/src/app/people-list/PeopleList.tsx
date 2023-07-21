@@ -1,20 +1,10 @@
-"use client";
+import Link from 'next/link';
 
-import Link from "next/link";
+import { getPeople } from 'shared/hooks/getPeople';
+import { getIdFromUrl } from 'shared/utils';
 
-import { usePeople } from "shared/hooks";
-import { getIdFromUrl } from "shared/utils";
-
-export const PeopleList = () => {
-  const { data, isLoading, isError } = usePeople();
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (isError) {
-    return <p>Error...</p>;
-  }
+export const PeopleList = async () => {
+  const data = await getPeople();
 
   return (
     <ul>

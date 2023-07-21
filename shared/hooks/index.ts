@@ -1,2 +1,3 @@
-export * from "./usePeople";
-export * from "./usePerson";
+export * from './usePeople';
+export * from './getPeople';
+export * from './usePerson';

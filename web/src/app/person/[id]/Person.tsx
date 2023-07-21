@@ -1,20 +1,11 @@
-"use client";
-
-import { usePerson } from "shared/hooks";
+import { getPerson } from 'shared/hooks/getPerson';
 
 type PersonProps = {
   params: { id: string };
 };
 
-export const Person = ({ params }: PersonProps) => {
-  const { isLoading, isError, data } = usePerson(params.id);
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (isError) {
-    return <p>Error...</p>;
-  }
+export const Person = async ({ params }: PersonProps) => {
+  const data = await getPerson(params.id);
 
   return (
     <pre>
